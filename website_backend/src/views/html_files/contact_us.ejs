@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AISF | Contact</title>
+    <title> Responsive Contact Us Form  | CodingLab </title>
+    <link rel="stylesheet" href="../css_files/contact_us.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../Contents/club_logo.png">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "iYakpP4zQb4pOJdNO",
+      });
+   })();
+</script>
+<script src="index.ejs"></script>
+</head>
+<body>
+  <video id="background-video" autoplay loop muted>
+    <source src="../Contents/MyVideo.mp4" type="video/mp4">
+  </video>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="innernav">
+      <div class="brand-title">
+        <img src="../Contents/AISF_logo.png" style="width: 6rem">
+        <p>AISF</p>
+        
+      </div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar-links">
+      <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/home#about">About Us</a></li>
+          <li><a href="/our_committee">Committee 2023</a></li>
+          <li><a href="/contact_us">Contact Us</a></li>
+          <li><a href="/join_us">Participate</a></li>
+      </ul>
+    </div>
+    </nav>
+    
+
+  <div class="container">
+    <div class="content">
+      <div class="left-side">
+        <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-one">E building</div>
+          <div class="text-two">Viit,Pune</div>
+        </div>
+        <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Phone</div>
+          <div class="text-one">9876543210</div>
+          <div class="text-two">8765432190</div>
+        </div>
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">aisf@viit.ac.in</div>
+          <div class="text-two">ashishdeshmukh@gmail.com</div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="topic-text">Send us a message</div>
+        <p>If you have any queries regarding AISF, you can send us a message from here. It's our pleasure to help you.</p>
+        <!-- using web3forms -->
+        <form id="contactForm" method="POST" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="79aa8b9d-63ba-40ba-853c-00a8d4a4092b">
+
+          
+          <div class="input-box">
+            <input type="text" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="input-box">
+            <input type="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box message-box">
+            <input type="text" name="message" placeholder="Enter your message" required>
+          </div>
+          <div class="button" >
+            <input type="submit" value="Send Now">
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function submitForm() {
+      const form = document.getElementById('contactForm');
+      const formData = new FormData(form);
+
+      fetch('/submit_form', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message')
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          alert('Message sent successfully!');
+        } else {
+          alert('Failed to send message.');
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert('Failed to send message.');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('.toggle-button');
+    const navbarLinks = document.querySelector('.navbar-links');
+
+    toggleButton.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active');
+    });
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+/* Basic styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    /* padding: px 20px; */
+    background-color: #282828cf;
+    color: #fff;
+    position: sticky;
+    top: 1px;
+  }
+  
+  .navbar .brand-title {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+  .navbar .brand-title p{
+    padding: 2px 1px 2px 10px;
+  }
+  
+  .navbar .innernav{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  
+  .navbar .navbar-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .navbar .navbar-links li {
+    margin: 0 10px;
+  }
+  
+  .navbar .navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  /* Styles for the toggle button (hamburger icon) */
+  .toggle-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    margin-top: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .navbar{
+      flex-direction: column;
+  
+    }
+    .brand-title{
+      flex-direction: row;
+      width: 100%;
+      align-items:flex-start;
+      justify-content: left;
+    }
+    .innernav{
+      flex-direction: row;
+      width: 100%;
+      align-items: start;
+      justify-content:left;
+    }
+    .navbar .navbar-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+    }
+  
+    .navbar .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+  
+    .navbar .navbar-links li {
+        text-align: center;
+        width: 100%;
+        margin: 10px 0;
+    }
+  
+    .navbar .navbar-links.active {
+        display: flex;
+    }
+  
+    .toggle-button {
+        display: flex;
+       
+    }
+  }
+  
+#heading{
+    display: block;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(54, 54, 54, 0.653);
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+
+
+
+.eventbox {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.eventbox h2 {
+    margin: 0 0 10px 0;
+}
+
+.eventbox p {
+    margin: 5px 0;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.km {
+    background-color: #008CBA;
+    color: white;
+}
+
+/* Responsive styling for tablets */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .navbar-title {
+        font-size: 1.2rem;
+    }
+
+    .navbar-heading {
+        font-size: 1.5rem;
+        margin-top: 10px;
+        order: 2;
+    }
+
+    .icon, .icon1 {
+        order: 1;
+        margin-bottom: 10px;
+    }
+}
+
+/* Responsive styling for mobile phones */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-img, .logo-img1 {
+        height: 40px;
+    }
+
+    .navbar-title {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .navbar-heading {
+        font-size: 1.2rem;
+        margin: 10px 0;
+    }
+
+    .icon, .icon1 {
+        justify-content: center;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .eventbox {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
